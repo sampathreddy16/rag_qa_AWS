@@ -81,7 +81,7 @@ class VectorStoreService:
                     distance=Distance.COSINE,
                 ),
             )
-            logger.info(f"Collection '{self.collection_name}' created successfully")
+            logger.info(f"Collection '{self.collection_name}' created successfully with dimensions {EMBEDDING_DIMENSION}")
 
     def add_documents(self, documents: list[Document]) -> list[str]:
         """Add documents to the vector store.

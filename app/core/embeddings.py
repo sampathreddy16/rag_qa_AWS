@@ -31,7 +31,7 @@ def get_embeddings() -> OpenAIEmbeddings:
         output_dimensionality=1536,
     )
 
-    logger.info("Embeddings model initialized successfully")
+    logger.info(f"Embeddings model initialized successfully with {1536}")
     return embeddings
 
 

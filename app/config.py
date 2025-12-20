@@ -27,8 +27,9 @@ class Settings(BaseSettings):
     collection_name: str = "rag_documents"
 
     # Document Processing Settings
-    chunk_size: int = 1000
-    chunk_overlap: int = 200
+    
+    chunk_size: int = 700
+    chunk_overlap: int = 70
 
     # Model Configuration
     embedding_model: str = "models/gemini-embedding-001"

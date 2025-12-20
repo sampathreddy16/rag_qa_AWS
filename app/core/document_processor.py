@@ -35,8 +35,17 @@ class DocumentProcessor:
             chunk_overlap: Overlap between chunks (default from settings)
         """
         settings = get_settings()
-        self.chunk_size = chunk_size or settings.chunk_size
-        self.chunk_overlap = chunk_overlap or settings.chunk_overlap
+        logger.info(
+            f"DocumentProcessor initialized with chunk_size={settings.chunk_size}, "
+            f"chunk_overlap={settings.chunk_overlap}"
+        )
+        
+        #self.chunk_size = chunk_size or settings.chunk_size
+        #self.chunk_overlap = chunk_overlap or settings.chunk_overlap
+
+        self.chunk_size = 700
+        self.chunk_overlap = 70
+
         #Chunk text splitter
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=self.chunk_size,
