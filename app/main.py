@@ -47,7 +47,7 @@ A Retrieval-Augmented Generation (RAG) question-answering system built with:
 - **FastAPI** for the API layer
 - **LangChain** for RAG orchestration
 - **Qdrant Cloud** for vector storage
-- **Gemini** for embeddings and LLM
+- **OpenAI** for embeddings and LLM
 
 ### Features
 - Upload PDF, TXT, and CSV documents
@@ -72,20 +72,14 @@ app.add_middleware(
 )
 
 # Mount static files
-app.mount("/static", StaticFiles(directory="static"), name="static")
+#app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Include routers
 app.include_router(health.router)
 app.include_router(documents.router)
 app.include_router(query.router)
 
-'''
-@app.get("/", response_class=HTMLResponse, tags=["Root"])
-async def root():
-    """Serve the main UI."""
-    with open("static/index.html", "r") as f:
-        return f.read()
-'''
+
 
 @app.get("/", tags=["Root"])
 async def root():
@@ -95,6 +89,7 @@ async def root():
         "version": __version__,
         "docs": "/docs",
     }
+
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
@@ -118,5 +113,5 @@ if __name__ == "__main__":
         "app.main:app",
         host=settings.api_host,
         port=settings.api_port,
-        reload=True,#In production, set to False
+        reload=True,
     )

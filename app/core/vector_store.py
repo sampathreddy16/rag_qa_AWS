@@ -34,6 +34,10 @@ def get_qdrant_client() -> QdrantClient:
         url=settings.qdrant_url,
         api_key=settings.qdrant_api_key,
     )
+    if settings.qdrant_api_key:
+        logger.info("Qdrant client initialized with API key.")
+    else:
+        logger.warning("Qdrant client initialized without API key. This might lead to permission issues.")
 
     logger.info("Qdrant client connected successfully")
     return client
