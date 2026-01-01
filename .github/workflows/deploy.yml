@@ -106,8 +106,8 @@ jobs:
                 "ImageRepositoryType": "ECR",
                 "ImageConfiguration": {
                   "Port": "8000",
-                  "RuntimeEnvironmentVariables": {
-                    "OPENAI_API_KEY": "${{ secrets.OPENAI_API_KEY }}",
+                  "RuntimeEnvironmentVariables": {                    
+                    "GOOGLE_API_KEY": "${{ secrets.GOOGLE_API_KEY }}",
                     "QDRANT_URL": "${{ secrets.QDRANT_URL }}",
                     "QDRANT_API_KEY": "${{ secrets.QDRANT_API_KEY }}",
                     "LOG_LEVEL": "INFO",
